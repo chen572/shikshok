@@ -1,11 +1,13 @@
 import React from 'react';
 import './App.css';
-import Video from './components/Video'
+import VideoCard from './components/VideoCard'
+import AppNavbar from './components/AppNavbar'
 
 function App() {
   return (
     <div>
-      <Video />
+      <AppNavbar />
+      <VideoCard />
     </div>
   );
 }
