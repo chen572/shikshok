@@ -1,14 +1,30 @@
-import React from 'react'
+import React from 'react';
+import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
+import SmsOutlinedIcon from '@material-ui/icons/SmsOutlined';
+import ShareOutlinedIcon from '@material-ui/icons/ShareOutlined';
 
-export default function VideoFooter() {
-    return (
-        <div >
-            <img style={{width: '3vh', marginLeft: '2vh'}} src='https://www.flaticon.com/svg/static/icons/svg/535/535285.svg' />
-            <span style={{fontSize: '3vh'}}>430K</span>
-            <img style={{width: '3vh', marginLeft: '4vh'}} src='https://www.flaticon.com/svg/static/icons/svg/1370/1370907.svg' />
-            <span style={{fontSize: '3vh'}}>32</span>
-            <img style={{width: '3vh', marginLeft: '4vh'}} src='https://www.flaticon.com/svg/static/icons/svg/1059/1059106.svg' />
-            <span style={{fontSize: '3vh'}}>260K</span>
-        </div>
-    )
+export default function VideoFooter(props) {
+  const { likes, reviews, shares } = props;
+
+  const addLikes = () => {
+    console.log('likes');
+  };
+
+  const addComment = () => {
+    console.log('comment');
+  };
+
+  const addShare = () => {
+    console.log('share');
+  };
+  return (
+    <div>
+      <FavoriteBorderIcon onClick={addLikes} style={{ marginLeft: '2vh' }} />
+      <span style={{ fontSize: '3vh' }}>{likes}K</span>
+      <SmsOutlinedIcon onClick={addComment} style={{ marginLeft: '4vh' }} />
+      <span style={{ fontSize: '3vh' }}>{reviews}</span>
+      <ShareOutlinedIcon onClick={addShare} style={{ marginLeft: '4vh' }} />
+      <span style={{ fontSize: '3vh' }}>{shares}K</span>
+    </div>
+  );
 }
