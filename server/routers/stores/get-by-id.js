@@ -13,17 +13,14 @@ module.exports = async (req, res) => {
     const store = await Product
       .find({ store: id })
       .lean()
-      .populate({
-        path: 'store'
-      },
-        '_id name'
-      )
+      .populate('store')
 
     res.json({
       success: true,
       data: store
     })
   } catch (e) {
+    console.log(e)
     res.status(500).json({
       success: false,
       messege: e

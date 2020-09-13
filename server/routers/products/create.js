@@ -4,30 +4,22 @@ const {
 } = require('../../models')
 
 module.exports = async (req, res) => {
-
   const {
     body
   } = req
-  const { id, key, value } = body
 
   try {
-    const updatedProp = await Product
-      .findByIdAndUpdate(
-        id,
-        { [key]: value },
-        { new: true, select: `${key}`, lean: true }
-      )
-      .lean()
+    const product = await new Product(body).save()
 
     res.json({
       success: true,
-      data: updatedProp
+      data: product
     })
   } catch (e) {
     console.log(e)
     res.status(500).json({
       success: false,
-      message: e
+      messege: e
     })
   }
 }

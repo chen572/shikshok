@@ -1,24 +1,25 @@
 
 const {
-  Product
+  Store
 } = require('../../models')
 
 module.exports = async (req, res) => {
+  const {
+    body
+  } = req
+
   try {
-    const products = await Product
-      .find({})
-      .lean()
-      .populate('store')
+    const store = await new Store(body).save()
 
     res.json({
       success: true,
-      data: products
+      data: store
     })
   } catch (e) {
     console.log(e)
     res.status(500).json({
       success: false,
-      message: e
+      messege: e
     })
   }
 }

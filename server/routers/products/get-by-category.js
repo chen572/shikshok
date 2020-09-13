@@ -6,20 +6,15 @@ const {
 module.exports = async (req, res) => {
 
   const {
-    params
+    body
   } = req
-  const { category } = params
+  const { category } = body
 
   try {
     const products = await Product
       .find({ category })
       .lean()
-      .populate({
-        path: 'store',
-        options: { lean: true }
-      },
-        'name'
-      )
+      .populate('store')
 
 
     res.json({
@@ -27,6 +22,7 @@ module.exports = async (req, res) => {
       data: products
     })
   } catch (e) {
+    console.log(e)
     res.status(500).json({
       success: false,
       message: e
