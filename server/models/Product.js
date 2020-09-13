@@ -7,7 +7,7 @@ const ProductSchema = new Schema({
   description: String,
   song: String,
   likes: { type: Number, default: 0 },
-  Reviews: { type: Number, default: 0 },
+  reviews: { type: Number, default: 0 },
   shares: { type: Number, default: 0 }
 })
 
