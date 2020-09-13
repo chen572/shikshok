@@ -1,5 +1,7 @@
-const Video = require('./Video')
+const Store = require('./Store')
+const Product = require('./Product')
 
 module.exports = {
-  Video
+  Store,
+  Product
 }
