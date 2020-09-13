@@ -6,9 +6,9 @@ const ProductSchema = new Schema({
   store: { type: Schema.Types.ObjectId, ref: 'Store' },
   description: String,
   song: String,
-  likes: Number,
-  Reviews: Number,
-  shares: Number,
+  likes: { type: Number, default: 0 },
+  Reviews: { type: Number, default: 0 },
+  shares: { type: Number, default: 0 }
 })
 
 const Product = mongoose.model('Product', ProductSchema)

@@ -11,4 +11,10 @@ productRouter.get('/:category', async (req, res) => {
   )
 })
 
+productRouter.put('/:prop', async (req, res) => {
+  const { prop } = req.params
+  const { id } = req.body
+  res.send(await dataSources.mongoClient.incrementProductPropById(prop, id))
+})
+
 module.exports = productRouter

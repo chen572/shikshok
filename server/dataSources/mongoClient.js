@@ -7,23 +7,34 @@ class MongoClient {
     return Models
       .Product
       .find({})
-      .populate({ path: 'store', options: { lean: true } }, '_id name')
       .lean()
+      .populate({ path: 'store', options: { lean: true } }, '_id name')
   }
 
   getStoreById(id) {
     return Models
       .Product
       .find({ store: id })
-      .populate({ path: 'store', options: { lean: true } }, '_id name')
       .lean()
+      .populate({ path: 'store', options: { lean: true } }, '_id name')
   }
 
   getProductsByCategory(category) {
     return Models
       .Product
       .find({ category })
+      .lean()
       .populate({ path: 'store', options: { lean: true } }, 'name')
+  }
+
+  incrementProductPropById(prop, id) {
+    return Models
+      .Product
+      .findByIdAndUpdate(
+        id,
+        { $inc: { [prop]: 1 } },
+        { new: true, select: `${prop}`, lean: true }
+      )
       .lean()
   }
 }
