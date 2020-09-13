@@ -4,36 +4,36 @@ import axios from 'axios'
 export function useVideoPlay() {
   const [playing, setPlaying] = useState(false)
   const videoRef = useRef()
-  const videoPlayOnShow = useCallback((node) => {
-    if (videoRef.current) { videoRef.current.disconnect() }
-    videoRef.current = new IntersectionObserver(entries => {
-      if (entries[0].isIntersecting) {
-        videoRef.current.play()
-      } else {
-        videoRef.current.pause()
-      }
-    })
-    if (node) videoRef.current.observe(node)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
-
-
-  // useEffect(() => {
-  //   const observer = new IntersectionObserver(
-  //     ([entry]) => {
-  //       if (entry.isIntersecting) {
-  //         setPlaying(true)
-  //         videoRef.current.play()
-  //       } else {
-  //         setPlaying(false)
-  //         videoRef.current.pause()
-  //       }
+  // const videoPlayOnShow = useCallback((node) => {
+  //   if (videoRef.current) { videoRef.current.disconnect() }
+  //   videoRef.current = new IntersectionObserver(([entry]) => {
+  //     if (entry.isIntersecting) {
+  //       node.play()
+  //     } else {
+  //       node.pause()
   //     }
-  //   )
-  //   if (videoRef.current) {
-  //     observer.observe(videoRef.current)
-  //   }
+  //   })
+  //   if (node) videoRef.current.observe(node)
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
   // }, [])
+
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setPlaying(true)
+          videoRef.current.play()
+        } else {
+          setPlaying(false)
+          videoRef.current.pause()
+        }
+      }
+    )
+    if (videoRef.current) {
+      observer.observe(videoRef.current)
+    }
+  }, [])
 
   const onVideoClick = () => {
     if (playing) {
@@ -45,7 +45,7 @@ export function useVideoPlay() {
     }
   }
 
-  return { videoRef, onVideoClick, videoPlayOnShow }
+  return { videoRef, onVideoClick }
 }
 
 export function useGetProducts() {
