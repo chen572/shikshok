@@ -2,8 +2,10 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 const ProductSchema = new Schema({
+  name: String,
   videoUrl: String,
   store: { type: Schema.Types.ObjectId, ref: 'Store' },
+  category: String,
   description: String,
   song: String,
   likes: { type: Number, default: 0 },

@@ -24,6 +24,7 @@ module.exports = async (req, res) => {
       data: updatedProp
     })
   } catch (e) {
+    console.log(e)
     res.status(500).json({
       success: false,
       message: e
