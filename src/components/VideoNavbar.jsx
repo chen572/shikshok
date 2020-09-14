@@ -1,9 +1,9 @@
-import React from 'react';
-import Avatar from '@material-ui/core/Avatar';
-import Button from '@material-ui/core/Button';
+import React from 'react'
+import Avatar from '@material-ui/core/Avatar'
+import Button from '@material-ui/core/Button'
 
 export default function VideoNavbar(props) {
-  const { avatar, productName, storeName, productDescription } = props;
+  const { avatar, productName, storeName, productDescription } = props
   return (
     <div style={{ marginLeft: '2vh', marginTop: '2vh' }}>
       <Avatar

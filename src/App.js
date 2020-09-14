@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
-import './App.css';
-import VideoCard from './components/VideoCard'
-import { useGetProducts } from './hooks/hooks';
-import Video from './components/VideoTest/Video';
+import React, { useState } from 'react'
+import './App.css'
+import { useGetProducts } from './hooks/hooks'
+import Video from './components/VideoTest/Video'
 
 
 
@@ -47,4 +46,4 @@ function App() {
   );
 }
 
-export default App;
+export default App

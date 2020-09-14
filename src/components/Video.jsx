@@ -1,11 +1,11 @@
-import React from 'react';
-import { useVideoPlay } from '../hooks/hooks';
+import React from 'react'
+import { useVideoPlay } from '../hooks/hooks'
 
 
 
 
 export default function SimpleCard(props) {
-  const { videoRef, onVideoClick } = useVideoPlay();
+  const { videoRef, onVideoClick } = useVideoPlay()
   const { videoUrl } = props
 
   return (
