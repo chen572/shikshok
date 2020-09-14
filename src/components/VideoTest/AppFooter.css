@@ -1,13 +1,6 @@
 #appFooter{
     position: absolute;
-    bottom: 7%;
+    bottom: 0px;
     width: 100%;
     text-align: center;
-}
-
-.appFooterButton{
-    color: white;
-    margin-left: 10%;
-    margin-right: 10%;
-    display: inline-block;
 }

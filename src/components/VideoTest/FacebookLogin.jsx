@@ -19,7 +19,6 @@ function FacebookLogin() {
   };
 
   return (
-    <div>
       <FacebookProvider appId={process.env.REACT_APP_FB_API_KEY}>
         <LoginButton
           className='fbButton'
@@ -30,7 +29,6 @@ function FacebookLogin() {
           {userImg}
         </LoginButton>
       </FacebookProvider>
-    </div>
   );
 }
 

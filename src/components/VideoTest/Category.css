@@ -1,0 +1,10 @@
+
+
+#foryou{
+    position: absolute;
+    z-index: 1;
+    bottom: 85%;
+    width: 50%;
+    right: 25%;
+    color: white;
+}

@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import './App.css'
 import { useGetProducts } from './hooks/hooks'
 import Video from './components/VideoTest/Video'
+import AppFooter from './components/VideoTest/AppFooter'
+import Category from './components/VideoTest/Category';
 
 
 
@@ -12,6 +14,7 @@ function App() {
 
   return (
     <div className='app'>
+      <Category />
       <div className='app__videos'>
         {loading && <div>Loading...</div>}
         {error && <div>error</div>}
@@ -42,6 +45,7 @@ function App() {
             />
         ))}
       </div>
+      <AppFooter />
     </div>
   );
 }
