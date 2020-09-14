@@ -3,72 +3,62 @@ import axios from 'axios'
 
 export function useVideoPlay() {
   const [playing, setPlaying] = useState(false)
-  const videoRef = useRef()
-  // const videoPlayOnShow = useCallback((node) => {
-  //   if (videoRef.current) { videoRef.current.disconnect() }
-  //   videoRef.current = new IntersectionObserver(([entry]) => {
-  //     if (entry.isIntersecting) {
-  //       node.play()
-  //     } else {
-  //       node.pause()
-  //     }
-  //   })
-  //   if (node) videoRef.current.observe(node)
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, [])
 
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setPlaying(true)
-          videoRef.current.play()
-        } else {
-          setPlaying(false)
-          videoRef.current.pause()
-        }
-      }
-    )
-    if (videoRef.current) {
-      observer.observe(videoRef.current)
-    }
-  }, [])
-
-  const onVideoClick = () => {
+  const onVideoClick = ({ target }) => {
     if (playing) {
-      videoRef.current.pause()
+      target.pause()
       setPlaying(false)
     } else {
-      videoRef.current.play()
+      target.play()
       setPlaying(true)
     }
   }
 
-  return { videoRef, onVideoClick }
+  return { onVideoClick }
 }
 
-export function useGetProducts() {
-  const [res, setRes] = useState({ data: [], loading: true, error: false })
+export function useGetProducts(page, setPage) {
+  const [res, setRes] = useState({ data: [], error: false })
+  // const [page, setPage] = useState(1)
+  const [hasMore, setHasMore] = useState(false)
+  const [loading, setLoading] = useState(true)
+
+  const observer = useRef()
+  const lastProductElementRef = useCallback((node) => {
+    if (loading) { return }
+    if (observer.current) { observer.current.disconnect() }
+    observer.current = new IntersectionObserver(entries => {
+      if (entries[0].isIntersecting && hasMore) {
+        setPage(page + 1)
+      }
+    })
+    if (node) observer.current.observe(node)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [loading, hasMore])
+
 
   useEffect(() => {
     try {
+      setLoading(true)
       async function getProducts() {
         return (await axios({
-          url: 'http://localhost:3001/api/v1/products/all',
+          url: 'http://localhost:3001/api/v1/products/all?page=' + page,
           method: 'GET'
         })).data
       }
       getProducts()
         .then(response => {
-          setRes({ data: response.data, loading: false, error: false })
+          setRes({ data: [...res.data, ...response.data], error: false })
+          setHasMore(response.data.length > 0)
+          setLoading(false)
         })
     } catch (e) {
       setRes({ data: [], loading: false, error: true })
     }
-  }, [])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [page])
 
-  return res
+  return { res, lastProductElementRef }
 }
 
 export function useUpdateVals(props) {
