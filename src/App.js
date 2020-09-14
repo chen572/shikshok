@@ -19,22 +19,24 @@ function App() {
           i + 1 === data.length
             ? <Video
               key={_id}
+              productId={_id}
               url={videoUrl}
               channel={store.name}
               song={song}
               likes={likes}
               shares={shares}
-              messages={reviews}
+              reviews={reviews}
               description={description}
             />
             : <Video
               key={_id}
+              productId={_id}
               url={videoUrl}
               channel={store.name}
               song={song}
               likes={likes}
               shares={shares}
-              messages={reviews}
+              reviews={reviews}
               description={description}
               lastElementRef={lastProductElementRef}
             />
@@ -44,4 +46,4 @@ function App() {
   );
 }
 
-export default App;
+export default App
