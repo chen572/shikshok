@@ -1,8 +1,8 @@
 .videoFooter {
   position: relative;
   color: white;
-  bottom: 150px;
-  margin-left: 40px;
+  bottom: 45vh;
+  margin-left: 20px;
   display: flex;
 }
 
@@ -11,7 +11,7 @@
 }
 
 .videoFooter__text > p {
-  padding-bottom: 20px;
+  padding-bottom: 10px;
   max-width: 300px;
 }
 
@@ -20,8 +20,7 @@
   height: 50px;
   filter: invert(1);
   position: absolute;
-  bottom: 0;
-  right: 20px;
+  right: 80px;
 }
 
 .videoFooter__icon {
@@ -35,7 +34,7 @@
 }
 
 .videoFooter__text > h3 {
-  padding-bottom: 20px;
+  padding-bottom: 5px;
 }
 
 .videoFooter__ticker h1 {
