@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import './App.css';
+import VideoCard from './components/VideoCard'
 import { useGetProducts } from './hooks/hooks';
 import Video from './components/VideoTest/Video';
+
 
 function App() {
   const [page, setPage] = useState(1)

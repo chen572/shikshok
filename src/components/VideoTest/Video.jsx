@@ -1,6 +1,7 @@
 import React from 'react'
 import VideoFooter from './VideoFooter'
 import VideoSidebar from './VideoSidebar'
+import AppFooter from './AppFooter'
 import './Video.css'
 import { useVideoPlay } from '../../hooks/hooks'
 
@@ -28,6 +29,7 @@ function Video({
       ></video>
       <VideoFooter channel={channel} description={description} song={song} />
       <VideoSidebar likes={likes} messages={messages} shares={shares} />
+      <AppFooter />
     </div>
   )
 }
