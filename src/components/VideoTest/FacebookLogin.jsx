@@ -1,29 +1,37 @@
-import React, { Component} from 'react';
+import React, { useState } from 'react';
 import { FacebookProvider, LoginButton } from 'react-facebook';
- 
-export default class FacebookLogin extends Component {
-  handleResponse = (data) => {
+import PersonOutlineOutlinedIcon from '@material-ui/icons/PersonOutlineOutlined';
+import Avatar from '@material-ui/core/Avatar';
+import './FacebookLogin.css';
+
+function FacebookLogin() {
+  const [userImg, setUserImg] = useState(
+    <PersonOutlineOutlinedIcon fontSize='large' />
+  );
+
+  const handleResponse = (data) => {
     console.log(data);
-  }
- 
-  handleError = (error) => {
-    this.setState({ error });
-  }
- 
-  render() {
-    return (
-      <div>
-        <FacebookProvider appId="2397377263900056">
+    setUserImg(<Avatar alt='user' src={data.profile.picture.data.url} />);
+  };
+
+  const handleError = (error) => {
+    //setState({ error });
+  };
+
+  return (
+    <div>
+      <FacebookProvider appId={process.env.REACT_APP_FB_API_KEY}>
         <LoginButton
-          scope="email"
-          onCompleted={this.handleResponse}
-          onError={this.handleError}
+          className='fbButton'
+          scope='email'
+          onCompleted={handleResponse}
+          onError={handleError}
         >
-          <span>Login via Facebook</span>
+          {userImg}
         </LoginButton>
       </FacebookProvider>
-      </div>
-      
-    );
-  }
+    </div>
+  );
 }
+
+export default FacebookLogin;
