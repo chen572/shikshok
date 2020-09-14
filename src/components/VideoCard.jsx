@@ -8,6 +8,7 @@ import CardActions from '@material-ui/core/CardActions'
 import CardContent from '@material-ui/core/CardContent'
 import { useGetProducts } from '../hooks/hooks'
 
+
 const useStyles = makeStyles({
   root: {
     minWidth: 250,
@@ -19,6 +20,7 @@ export default function SimpleCard() {
   const classes = useStyles()
   const { loading, error, data } = useGetProducts()
 
+  
   return (
     <>
       {loading && <div>Loading...</div>}
