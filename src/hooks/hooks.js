@@ -65,18 +65,21 @@ export function useUpdateVals(props) {
   const { productId, likes, reviews, shares } = props
   const [values, setValues] = useState({ likes, reviews, shares })
 
-  return async (key, value) => {
-    setValues({
-      ...values,
-      [key]: (await axios({
-        url: 'http://localhost:3001/products/update',
-        method: 'PUT',
-        data: {
-          id: productId,
-          key,
-          value
-        }
-      })).data.data
-    })
+  return {
+    values,
+    updateVals: async (key, value) => {
+      setValues({
+        ...values,
+        [key]: (await axios({
+          url: 'http://localhost:3001/api/v1/products/update',
+          method: 'put',
+          data: {
+            id: productId,
+            key,
+            value
+          }
+        })).data.data[key]
+      })
+    }
   }
 }

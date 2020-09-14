@@ -5,7 +5,6 @@ import Video from './Video'
 import { makeStyles } from '@material-ui/core/styles'
 import Card from '@material-ui/core/Card'
 import CardActions from '@material-ui/core/CardActions'
-import CardContent from '@material-ui/core/CardContent'
 import { useGetProducts } from '../hooks/hooks'
 
 
