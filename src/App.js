@@ -1,24 +1,35 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import VideoCard from './components/VideoCard'
+import AppNavbar from './components/AppNavbar'
+import { useGetProducts } from './hooks/hooks';
+import Video from './components/VideoTest/Video';
 
 function App() {
+  const { loading, error, data } = useGetProducts()
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    // <div>
+    //   <AppNavbar />
+    //   <VideoCard />
+    // </div>
+    <div className='app'>
+      <div className='app__videos'>
+        {loading && <div>Loading...</div>}
+        {error && <div>error</div>}
+        {data.length && data.map(({ _id, videoUrl, store, description, song, likes, reviews, shares }) => (
+          <Video
+            key={_id}
+            url={videoUrl}
+            channel={store.name}
+            song={song}
+            likes={likes}
+            shares={shares}
+            messages={reviews}
+            description={description}
+          />
+        ))}
+      </div>
     </div>
   );
 }
