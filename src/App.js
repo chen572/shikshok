@@ -1,9 +1,9 @@
 import React from 'react';
 import './App.css';
 import VideoCard from './components/VideoCard'
-import AppNavbar from './components/AppNavbar'
 import { useGetProducts } from './hooks/hooks';
 import Video from './components/VideoTest/Video';
+
 
 function App() {
   const { loading, error, data } = useGetProducts()

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Paypal from '../Paypal';
+import Paypal from './Paypal';
 import './VideoSidebar.css';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
