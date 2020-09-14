@@ -5,6 +5,7 @@ import { useGetProducts } from './hooks/hooks';
 import Video from './components/VideoTest/Video';
 
 
+
 function App() {
   const [page, setPage] = useState(1)
   const { res, lastProductElementRef } = useGetProducts(page, setPage)
