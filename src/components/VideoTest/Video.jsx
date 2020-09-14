@@ -11,9 +11,10 @@ function Video({
   description,
   song,
   likes,
-  messages,
+  reviews,
   shares,
   lastElementRef,
+  productId
 }) {
   const { onVideoClick } = useVideoPlay()
 
@@ -28,7 +29,7 @@ function Video({
         src={url}
       ></video>
       <VideoFooter channel={channel} description={description} song={song} />
-      <VideoSidebar likes={likes} messages={messages} shares={shares} />
+      <VideoSidebar productId={productId} likes={likes} reviews={reviews} shares={shares} />
       <AppFooter />
     </div>
   )

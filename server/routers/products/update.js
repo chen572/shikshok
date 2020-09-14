@@ -18,7 +18,7 @@ module.exports = async (req, res) => {
         { new: true, select: `${key}`, lean: true }
       )
       .lean()
-
+    
     res.json({
       success: true,
       data: updatedProp
