@@ -11,7 +11,6 @@ function FacebookLogin(props) {
   const [loggedIn, setLoggedIn] = useState(false)
 
   const handleResponse = (data) => {
-    console.log(data)
     userName.setName(data.profile.name)
     userImg.setImg(data.profile.picture.data.url)
     setLoggedIn(true)

@@ -89,13 +89,6 @@ export function useUserInfo() {
   const [userImg, setUserImg] = useState(<PersonOutlineOutlinedIcon fontSize='large' />)
   const [userName, setUserName] = useState('')
 
-  const setImg = async (userId) => {
-    console.log((await axios({
-      url: `https://graph.facebook.com/v8.0/${userId}/picture`,
-    })).data
-    )
-  }
-
   return {
     userImg: {
       img: userImg,

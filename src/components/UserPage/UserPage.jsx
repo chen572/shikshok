@@ -27,7 +27,7 @@ const useStyles = makeStyles({
   avatar: {
     height: 100,
     width: 100,
-    marginRight: 20,
+    marginLeft: 30,
   },
 })
 
@@ -36,7 +36,6 @@ function UserPage(props) {
   const { name } = userName
   const { img } = userImg
   const classes = useStyles()
-  console.log(img)
 
   return (
     <Grid
@@ -67,7 +66,14 @@ function UserPage(props) {
           </Grid>
         </Grid>
       </Grid>
-      <Grid className={classes.bottomGrid} container></Grid>
+      <Grid
+        className={classes.bottomGrid}
+        container
+        direction='column'
+        alignContent='center'
+      >
+        <Typography variant='h4'>Transactions:</Typography>
+      </Grid>
     </Grid>
   )
 }
