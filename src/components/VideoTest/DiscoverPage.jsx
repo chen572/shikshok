@@ -1,33 +1,50 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Autocomplete from '@material-ui/lab/Autocomplete'
+import SearchIcon from '@material-ui/icons/Search'
 import { Grid, makeStyles, TextField } from '@material-ui/core'
-import { useHistory } from 'react-router-dom'
+import { Link } from 'react-router-dom'
+import { useGetCategories } from '../../hooks/hooks'
 
 const useStyles = makeStyles({
   rootGrid: {
-    height: '100vh',
+    height: '90vh',
     width: '100vw',
+    marginTop: '1vh',
   },
 })
 
 function DiscoverPage() {
-  
-  const { goBack } = useHistory()
+  const { loading, data } = useGetCategories()
   const classes = useStyles()
+  const [category, setCategory] = useState('all')
+
+  const handleChange = ({ target }) => {
+    setCategory(target.innerText)
+  }
 
   return (
-    <Grid container>
-      <Autocomplete
-        className={classes.rootGrid}
-        freeSolo
-        disableClearable
-        options={['test']}
-        openOnFocus
-        renderInput={(params) => (
-          <TextField {...params} label='Discover' variant='outlined' />
-        )}
-      />
-    </Grid>
+    <>
+      {loading ? (
+        <div>Loading</div>
+      ) : (
+        <Grid container justify='center'>
+          <Link to={`/products/${category}`}>
+            <SearchIcon />
+          </Link>
+          <Autocomplete
+            className={classes.rootGrid}
+            freeSolo
+            onChange={handleChange}
+            disableClearable
+            options={data}
+            openOnFocus
+            renderInput={(params) => (
+              <TextField {...params} label='Discover' variant='outlined' />
+            )}
+          />
+        </Grid>
+      )}
+    </>
   )
 }
 

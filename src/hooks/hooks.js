@@ -100,3 +100,23 @@ export function useUserInfo() {
     }
   }
 }
+
+export function useGetCategories() {
+  const [res, setRes] = useState({ data: [], loading: true })
+
+  useEffect(() => {
+    try {
+      async function getCategories() {
+        return (await axios({
+          url: 'http://localhost:3001/api/v1/products/categories',
+          method: 'GET'
+        })).data
+      }
+      getCategories().then(response => setRes({ data: response.data, loading: false }))
+    } catch (e) {
+      setRes({ data: [], loading: false })
+    }
+  }, [])
+
+  return res
+}

@@ -1,7 +1,7 @@
 import React from 'react'
 import './AppFooter.css'
 import FacebookLogin from './FacebookLogin'
-import Messages from './Messages'
+import ForumIcon from '@material-ui/icons/Forum'
 
 export default function AppFooter(props) {
   const { userInfo } = props
@@ -10,7 +10,9 @@ export default function AppFooter(props) {
     <div id='appFooter'>
       <hr></hr>
       <div className='icon-container'>
-        <Messages />
+        <div id='messagesBtn'>
+          <ForumIcon fontSize='large' />
+        </div>
         <FacebookLogin userInfo={userInfo} />
       </div>
     </div>
