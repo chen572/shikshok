@@ -1,7 +1,7 @@
-import React from 'react';
-import './AppFooter.css';
-import FacebookLogin from './FacebookLogin';
-import ForumIcon from '@material-ui/icons/Forum';
+import React from 'react'
+import './AppFooter.css'
+import FacebookLogin from './FacebookLogin'
+import ForumIcon from '@material-ui/icons/Forum'
 
 export default function AppFooter(props) {
   const { userInfo } = props
@@ -9,10 +9,12 @@ export default function AppFooter(props) {
   return (
     <div id='appFooter'>
       <hr></hr>
-      <div id='messagesBtn'>
-            <ForumIcon fontSize="large" />
+      <div className='icon-container'>
+        <div id='messagesBtn'>
+          <ForumIcon fontSize='large' />
         </div>
-      <FacebookLogin />
+        <FacebookLogin userInfo={userInfo} />
+      </div>
     </div>
   )
 }

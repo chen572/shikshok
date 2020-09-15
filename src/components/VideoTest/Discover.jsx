@@ -1,10 +1,13 @@
-import React from 'react';
-import './AppNavbar.css';
+import React from 'react'
+import './AppNavbar.css'
+import { Link } from 'react-router-dom'
 
 export default function Discover() {
   return (
-    <div >
-        <h3 className="navbarButton">Discover</h3>
+    <div>
+      <Link to='/discover' style={{ textDecoration: 'none' }}>
+        <h3 className='navbarButton'>Discover</h3>
+      </Link>
     </div>
-  );
+  )
 }
