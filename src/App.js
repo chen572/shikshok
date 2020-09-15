@@ -1,52 +1,22 @@
-import React, { useState } from 'react'
+import React from 'react'
 import './App.css'
-import { useGetProducts } from './hooks/hooks'
-import Video from './components/VideoTest/Video'
+import ProductsContainer from './components/VideoTest/ProductsContainer'
+import UserPage from './components/UserPage/UserPage'
 import AppFooter from './components/VideoTest/AppFooter'
-import Category from './components/VideoTest/Category';
-
-
+import Category from './components/VideoTest/Category'
+import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
+import { useUserInfo } from './hooks/hooks'
 
 function App() {
-  const [page, setPage] = useState(1)
-  const { res, lastProductElementRef } = useGetProducts(page, setPage)
-  const { loading, error, data } = res
+  const userInfo = useUserInfo()
 
   return (
-    <div className='app'>
-      <Category />
-      <div className='app__videos'>
-        {loading && <div>Loading...</div>}
-        {error && <div>error</div>}
-        {data.length && data.map(({ _id, videoUrl, store, description, song, likes, reviews, shares }, i) => (
-          i + 1 === data.length
-            ? <Video
-              key={_id}
-              productId={_id}
-              url={videoUrl}
-              channel={store.name}
-              song={song}
-              likes={likes}
-              shares={shares}
-              reviews={reviews}
-              description={description}
-            />
-            : <Video
-              key={_id}
-              productId={_id}
-              url={videoUrl}
-              channel={store.name}
-              song={song}
-              likes={likes}
-              shares={shares}
-              reviews={reviews}
-              description={description}
-              lastElementRef={lastProductElementRef}
-            />
-        ))}
-      </div>
-      <AppFooter />
-    </div>
+    <Router>
+      <Route exact path='/' render={() => <Redirect to='/products'></Redirect>} />
+      <Route exact path='/products' render={() => <ProductsContainer />} />
+      <Route exact path='/me' render={() => <UserPage userInfo={userInfo} />} />
+      <AppFooter userInfo={userInfo} />
+    </Router>
   );
 }
 

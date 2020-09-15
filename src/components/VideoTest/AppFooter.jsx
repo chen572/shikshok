@@ -1,13 +1,16 @@
-import React from 'react';
-import './AppFooter.css';
-import FacebookLogin from './FacebookLogin';
+import React from 'react'
+import './AppFooter.css'
+import FacebookLogin from './FacebookLogin'
+import { useLocation } from 'react-router-dom'
 
+export default function AppFooter(props) {
+  const location = useLocation()
+  const { userInfo } = props
 
-export default function AppFooter() {
   return (
     <div id='appFooter'>
       <hr></hr>
-      <FacebookLogin />
+      <FacebookLogin userInfo={userInfo} />
     </div>
-  );
+  )
 }

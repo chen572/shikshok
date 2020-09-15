@@ -7,7 +7,6 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import InputLabel from '@material-ui/core/InputLabel';
 import Input from '@material-ui/core/Input';
-import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import './Category.css';
@@ -76,7 +75,7 @@ export default function Category() {
                 input={<Input id='demo-dialog-native' />}
               >   
                 <option aria-label='None' value='' />
-                {categories.map(category => <option value={category}>{category}</option>)}
+                {categories.map(category => <option key={category} value={category}>{category}</option>)}
               </Select>
             </FormControl>
           </form>
