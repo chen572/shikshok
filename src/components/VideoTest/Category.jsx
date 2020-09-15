@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
@@ -25,8 +25,8 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Category() {
   const classes = useStyles();
-  const [open, setOpen] = React.useState(false);
-  const [category, setCategory] = React.useState('');
+  const [open, setOpen] = useState(false);
+  const [category, setCategory] = useState('');
 
   const handleChange = (event) => {
     setCategory(event.target.value || '');
@@ -41,7 +41,7 @@ export default function Category() {
     console.log(category);
   };
 
-  const [categories, setCategories] = React.useState([]);
+  const [categories, setCategories] = useState([]);
   useEffect(() => {
     axios({
       url: 'http://localhost:3001/api/v1/products/categories',
