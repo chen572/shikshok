@@ -1,5 +1,4 @@
-import React, { useState, useRef, useEffect, useCallback } from 'react'
-import PersonOutlineOutlinedIcon from '@material-ui/icons/PersonOutlineOutlined'
+import { useState, useRef, useEffect, useCallback } from 'react'
 import axios from 'axios'
 
 export function useVideoPlay() {
@@ -86,7 +85,7 @@ export function useUpdateVals(props) {
 }
 
 export function useUserInfo() {
-  const [userImg, setUserImg] = useState(<PersonOutlineOutlinedIcon fontSize='large' />)
+  const [userImg, setUserImg] = useState('')
   const [userName, setUserName] = useState('')
 
   return {
