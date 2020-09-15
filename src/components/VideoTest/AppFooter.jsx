@@ -3,8 +3,9 @@ import './AppFooter.css';
 import FacebookLogin from './FacebookLogin';
 import ForumIcon from '@material-ui/icons/Forum';
 
+export default function AppFooter(props) {
+  const { userInfo } = props
 
-export default function AppFooter() {
   return (
     <div id='appFooter'>
       <hr></hr>
@@ -13,5 +14,5 @@ export default function AppFooter() {
         </div>
       <FacebookLogin />
     </div>
-  );
+  )
 }
