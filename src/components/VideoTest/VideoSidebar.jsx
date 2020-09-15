@@ -34,27 +34,6 @@ function VideoSidebar(props) {
       )}
       <div className='videoSidebar'>
         <div className='videoSidebar__button'>
-          {!paypalPopUp ? (
-            <IconButton
-              className={classes.button}
-              onClick={() =>
-                !paypalPopUp ? setPaypalPopUp(true) : setPaypalPopUp(false)
-              }
-            >
-              <ShoppingCartOutlinedIcon fontSize='large' />
-            </IconButton>
-          ) : (
-            <IconButton
-              className={classes.button}
-              onClick={() =>
-                !paypalPopUp ? setPaypalPopUp(true) : setPaypalPopUp(false)
-              }
-            >
-              <RemoveShoppingCartOutlinedIcon fontSize='large' />
-            </IconButton>
-          )}
-        </div>
-        <div className='videoSidebar__button'>
           {liked ? (
             <IconButton
               className={classes.button}
@@ -95,6 +74,27 @@ function VideoSidebar(props) {
             <ShareIcon fontSize='large' />
           </IconButton>
           <p className='number'>{shares}</p>
+        </div>
+        <div className='videoSidebar__button'>
+          {!paypalPopUp ? (
+            <IconButton
+              className={classes.button}
+              onClick={() =>
+                !paypalPopUp ? setPaypalPopUp(true) : setPaypalPopUp(false)
+              }
+            >
+              <ShoppingCartOutlinedIcon fontSize='large' />
+            </IconButton>
+          ) : (
+            <IconButton
+              className={classes.button}
+              onClick={() =>
+                !paypalPopUp ? setPaypalPopUp(true) : setPaypalPopUp(false)
+              }
+            >
+              <RemoveShoppingCartOutlinedIcon fontSize='large' />
+            </IconButton>
+          )}
         </div>
       </div>
     </div>

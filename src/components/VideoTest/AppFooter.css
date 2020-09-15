@@ -1,6 +1,6 @@
 #appFooter{
     position: absolute;
-    bottom: 2vh;
+    bottom: 4vh;
     width: 100%;
     text-align: center;
     
@@ -12,7 +12,7 @@
     color: white;
 }
 
-#messagesBtn{
+.appFooterBtn{
     color: white;
     display: inline;
 
