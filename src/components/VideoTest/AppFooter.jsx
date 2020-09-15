@@ -12,7 +12,7 @@ export default function AppFooter(props) {
       <div id='messagesBtn'>
             <ForumIcon fontSize="large" />
         </div>
-      <FacebookLogin />
+      <FacebookLogin  userInfo={userInfo} />
     </div>
   )
 }
