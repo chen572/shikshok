@@ -1,6 +1,6 @@
 .videoSidebar {
   position: absolute;
-  top: 1%;
+  top: 33%;
   right: 1vh;
   color: white;
 }
@@ -15,4 +15,8 @@
   top: 10%;
   width: 100%;
   background-color: rgba(255, 255, 255, 0.3);
+}
+
+.number{
+  margin: 0px;
 }

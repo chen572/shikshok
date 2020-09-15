@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { FacebookProvider, LoginButton } from 'react-facebook';
 import PersonOutlineOutlinedIcon from '@material-ui/icons/PersonOutlineOutlined';
 import Avatar from '@material-ui/core/Avatar';
-import './FacebookLogin.css';
+import './AppFooter.css';
 
 function FacebookLogin() {
   const [userImg, setUserImg] = useState(
