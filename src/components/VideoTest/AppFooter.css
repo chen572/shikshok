@@ -10,14 +10,16 @@
     background-color: transparent;
     border: none;
     color: white;
-    margin-right: 10%;
-    margin-left: 10%;
 }
 
 #messagesBtn{
     color: white;
     display: inline;
-    margin-right: 10%;
-    margin-left: 10%;
 
+}
+
+.icon-container {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
 }
