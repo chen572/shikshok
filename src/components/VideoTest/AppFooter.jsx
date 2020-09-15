@@ -12,12 +12,12 @@ export default function AppFooter(props) {
     <div id='appFooter'>
       <hr></hr>
       <div className='icon-container'>
-        <Link to='messages'>
+        <Link to='/messages'>
           <div className='appFooterBtn'>
             <ForumIcon fontSize='large' />
           </div>
         </Link>
-        <Link to='products'>
+        <Link to='/products'>
           <div className='appFooterBtn'>
             <HomeIcon fontSize='large' />
           </div>
