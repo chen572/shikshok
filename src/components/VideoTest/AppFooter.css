@@ -3,6 +3,9 @@
   bottom: 2vh;
   width: 100%;
   text-align: center;
+  justify-self: center;
+  background-color: black;
+  padding-top: 1vh;
 }
 
 .fbButton {

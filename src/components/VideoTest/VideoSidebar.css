@@ -1,6 +1,6 @@
 .videoSidebar {
   position: absolute;
-  top: 35%;
+  top: 43%;
   right: 1vh;
   color: white;
 }
@@ -12,7 +12,7 @@
 
 #paypalPopUp {
   position: absolute;
-  top: 14%;
+  top: 50px;
   width: 100%;
   overflow: scroll;
   max-height: 435px;

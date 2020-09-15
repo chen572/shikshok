@@ -1,7 +1,7 @@
 .videoFooter {
   position: relative;
   color: white;
-  bottom: 35vh;
+  bottom: 36vh;
   margin-left: 20px;
   display: flex;
 }
@@ -47,6 +47,29 @@
 
 #directMessage{
   transform: rotate(-20deg);
+}
+
+.priceDiv{
+  width: 25vh;
+  height: 13vh;
+  background-color: rgba(245, 245, 245, 0.8);
+  border: solid black 1px;
+  border-radius: 5px;
+  text-align: center;
+   
+}
+
+
+
+.buyBtn{
+  width: 20vh;
+  height: 3vh;
+  background-color: lightgrey;
+  border: solid black 1px;
+  border-radius: 2px;
+  text-align: center;
+  margin: auto;
+  color: black;
 }
 
 @keyframes spinTheRecord {
