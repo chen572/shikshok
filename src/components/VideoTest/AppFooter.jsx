@@ -11,17 +11,19 @@ export default function AppFooter(props) {
   return (
     <div id='appFooter'>
       <hr></hr>
-      <Link to='messages'>
-        <div className='appFooterBtn'>
-          <ForumIcon fontSize='large' />
-        </div>
-      </Link>
-      <Link to='products'>
-      <div className='appFooterBtn'>
-        <HomeIcon fontSize='large' />
+      <div className='icon-container'>
+        <Link to='messages'>
+          <div className='appFooterBtn'>
+            <ForumIcon fontSize='large' />
+          </div>
+        </Link>
+        <Link to='products'>
+          <div className='appFooterBtn'>
+            <HomeIcon fontSize='large' />
+          </div>
+        </Link>
+        <FacebookLogin userInfo={userInfo} />
       </div>
-      </Link>
-      <FacebookLogin userInfo={userInfo} />
     </div>
   );
 }

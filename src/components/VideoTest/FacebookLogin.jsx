@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import { FacebookProvider, LoginButton } from 'react-facebook';
-import Avatar from '@material-ui/core/Avatar';
-import './AppFooter.css';
+import React, { useState } from 'react'
+import { FacebookProvider, LoginButton } from 'react-facebook'
+import Avatar from '@material-ui/core/Avatar'
+import './AppFooter.css'
 import { ButtonBase } from '@material-ui/core'
 import { Link } from 'react-router-dom'
 
@@ -20,7 +20,10 @@ function FacebookLogin(props) {
       {loggedIn ? (
         <ButtonBase>
           <Link to='/me'>
-            <Avatar alt='user' src={userImg.img} />
+            <Avatar
+              alt='user'
+              src={userImg.img}
+            />
           </Link>
         </ButtonBase>
       ) : (
