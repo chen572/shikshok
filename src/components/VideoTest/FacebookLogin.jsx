@@ -4,32 +4,40 @@ import PersonOutlineOutlinedIcon from '@material-ui/icons/PersonOutlineOutlined'
 import Avatar from '@material-ui/core/Avatar';
 import './AppFooter.css';
 
-function FacebookLogin() {
-  const [userImg, setUserImg] = useState(
-    <PersonOutlineOutlinedIcon fontSize='large' />
-  );
+import Avatar from '@material-ui/core/Avatar'
+import './FacebookLogin.css'
+import { ButtonBase } from '@material-ui/core'
+import { Link } from 'react-router-dom'
+
+function FacebookLogin(props) {
+  const { userImg, userName } = props.userInfo
+  const [loggedIn, setLoggedIn] = useState(false)
 
   const handleResponse = (data) => {
-    console.log(data);
-    setUserImg(<Avatar alt='user' src={data.profile.picture.data.url} />);
-  };
-
-  const handleError = (error) => {
-    //setState({ error });
-  };
+    userName.setName(data.profile.name)
+    userImg.setImg(data.profile.picture.data.url)
+    setLoggedIn(true)
+  }
 
   return (
-      <FacebookProvider appId={process.env.REACT_APP_FB_API_KEY}>
+    <FacebookProvider appId={process.env.REACT_APP_FB_API_KEY}>
+      {loggedIn ? (
+        <ButtonBase>
+          <Link to='/me'>
+            <Avatar alt='user' src={userImg.img} />
+          </Link>
+        </ButtonBase>
+      ) : (
         <LoginButton
           className='fbButton'
           scope='email'
           onCompleted={handleResponse}
-          onError={handleError}
         >
-          {userImg}
+          {userImg.img}
         </LoginButton>
-      </FacebookProvider>
-  );
+      )}
+    </FacebookProvider>
+  )
 }
 
-export default FacebookLogin;
+export default FacebookLogin

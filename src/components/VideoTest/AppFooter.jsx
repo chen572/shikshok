@@ -3,13 +3,14 @@ import './AppFooter.css';
 import FacebookLogin from './FacebookLogin';
 import Messages from './Messages'
 
+export default function AppFooter(props) {
+  const { userInfo } = props
 
-export default function AppFooter() {
   return (
     <div id='appFooter'>
       <hr></hr>
       <Messages />
-      <FacebookLogin />
+      <FacebookLogin userInfo={userInfo} />
     </div>
-  );
+  )
 }
