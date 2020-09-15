@@ -1,6 +1,6 @@
 import React from 'react'
 import { useGetProducts } from '../../hooks/hooks'
-import Category from './Category'
+import AppNavbar from './AppNavbar'
 import Video from './Video'
 
 function ProductsContainer() {
@@ -9,7 +9,7 @@ function ProductsContainer() {
 
   return (
     <div className='app'>
-      <Category />
+      <AppNavbar/>
       <div className='app__videos'>
         {loading && <div>Loading...</div>}
         {error && <div>error</div>}

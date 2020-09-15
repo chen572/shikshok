@@ -1,11 +1,7 @@
 import React, { useState } from 'react';
 import { FacebookProvider, LoginButton } from 'react-facebook';
-import PersonOutlineOutlinedIcon from '@material-ui/icons/PersonOutlineOutlined';
 import Avatar from '@material-ui/core/Avatar';
 import './AppFooter.css';
-
-import Avatar from '@material-ui/core/Avatar'
-import './FacebookLogin.css'
 import { ButtonBase } from '@material-ui/core'
 import { Link } from 'react-router-dom'
 
