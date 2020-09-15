@@ -1,25 +1,27 @@
-#appFooter{
-    position: absolute;
-    bottom: 4vh;
-    width: 100%;
-    text-align: center;
-    
+#appFooter {
+  position: absolute;
+  bottom: 2vh;
+  width: 100%;
+  text-align: center;
 }
 
-.fbButton{
-    background-color: transparent;
-    border: none;
-    color: white;
+.fbButton {
+  background-color: transparent;
+  border: none;
+  color: white;
 }
 
-.appFooterBtn{
-    color: white;
-    display: inline;
-
+.appFooterBtn {
+  color: white;
+  display: inline;
 }
 
 .icon-container {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+#dark {
+    color: black;
 }
