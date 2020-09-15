@@ -76,7 +76,7 @@ function VideoSidebar(props) {
               <FavoriteBorderIcon fontSize='large' />
             </IconButton>
           )}
-          <p>{likes}</p>
+          <p className='number'>{likes}</p>
         </div>
         <div className='videoSidebar__button'>
           <IconButton
@@ -85,7 +85,7 @@ function VideoSidebar(props) {
           >
             <MessageIcon fontSize='large' />
           </IconButton>
-          <p>{reviews}</p>
+          <p className='number'>{reviews}</p>
         </div>
         <div className='videoSidebar__button'>
           <IconButton
@@ -94,7 +94,7 @@ function VideoSidebar(props) {
           >
             <ShareIcon fontSize='large' />
           </IconButton>
-          <p>{shares}</p>
+          <p className='number'>{shares}</p>
         </div>
       </div>
     </div>

@@ -1,0 +1,16 @@
+#navbarButtonDiv{
+    position: absolute;
+    z-index: 1;
+    top: 5.5vh;
+    display: inline-flex;
+    
+
+}
+
+.navbarButton{
+    color: white;
+    margin-left: 3vh;
+    margin-right: 3vh;
+    
+}
+

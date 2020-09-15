@@ -1,6 +1,23 @@
 #appFooter{
     position: absolute;
-    bottom: 0px;
+    bottom: 2vh;
     width: 100%;
     text-align: center;
+    
+}
+
+.fbButton{
+    background-color: transparent;
+    border: none;
+    color: white;
+    margin-right: 10%;
+    margin-left: 10%;
+}
+
+#messagesBtn{
+    color: white;
+    display: inline;
+    margin-right: 10%;
+    margin-left: 10%;
+
 }
