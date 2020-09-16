@@ -9,7 +9,6 @@ export default function AppFooter(props) {
   const { pathname } = useLocation()
   const { userInfo } = props
 
-
   return (
     <div id='appFooter'>
       <div className='icon-container'>

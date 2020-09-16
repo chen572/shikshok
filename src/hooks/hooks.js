@@ -42,7 +42,7 @@ export function useGetProducts() {
       setLoading(true)
       async function getProducts() {
         return (await axios({
-          url: 'http://localhost:3001/api/v1/products/all?page=' + page,
+          url: '/api/v1/products/all?page=' + page,
           method: 'GET'
         })).data
       }
@@ -71,7 +71,7 @@ export function useUpdateVals(props) {
       setValues({
         ...values,
         [key]: (await axios({
-          url: 'http://localhost:3001/api/v1/products/update',
+          url: '/api/v1/products/update',
           method: 'put',
           data: {
             id: productId,
@@ -107,7 +107,7 @@ export function useGetCategories() {
     try {
       async function getCategories() {
         return (await axios({
-          url: 'http://localhost:3001/api/v1/products/categories',
+          url: '/api/v1/products/categories',
           method: 'GET'
         })).data
       }

@@ -1,7 +1,7 @@
 .videoFooter {
   position: relative;
   color: white;
-  bottom: 36vh;
+  bottom: 43vh;
   margin-left: 20px;
   display: flex;
 }
@@ -12,7 +12,8 @@
 
 .videoFooter__text > p {
   padding-bottom: 5hv;
-  max-width: 300px;
+  margin-left: 0;
+  max-width: 50vw;
 }
 
 .videoFooter__record {
@@ -56,7 +57,6 @@
   border: solid black 1px;
   border-radius: 5px;
   text-align: center;
-   
 }
 
 
