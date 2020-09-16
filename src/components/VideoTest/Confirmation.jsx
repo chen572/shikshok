@@ -1,17 +1,13 @@
-import React from 'react'
-import './Confirmation.css'
-import Avatar from '@material-ui/core/Avatar'
-import CssBaseline from '@material-ui/core/CssBaseline'
-import TextField from '@material-ui/core/TextField'
-import FormControlLabel from '@material-ui/core/FormControlLabel'
-import Checkbox from '@material-ui/core/Checkbox'
-import Link from '@material-ui/core/Link'
-import Typography from '@material-ui/core/Typography'
-import { makeStyles } from '@material-ui/core/styles'
-import Container from '@material-ui/core/Container'
-import RemoveTwoToneIcon from '@material-ui/icons/RemoveTwoTone'
-import AddTwoToneIcon from '@material-ui/icons/AddTwoTone'
-import Slider from '@material-ui/core/Slider'
+import React, { useState } from 'react';
+import './Confirmation.css';
+import Avatar from '@material-ui/core/Avatar';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import Typography from '@material-ui/core/Typography';
+import { makeStyles } from '@material-ui/core/styles';
+import Container from '@material-ui/core/Container';
+import RemoveTwoToneIcon from '@material-ui/icons/RemoveTwoTone';
+import AddTwoToneIcon from '@material-ui/icons/AddTwoTone';
+import Slider from '@material-ui/core/Slider';
 
 const marks = [
   {
@@ -41,10 +37,10 @@ const marks = [
       />
     ),
   },
-]
+];
 
 function valuetext(value) {
-  return `${value}°C`
+  return `+${value}$`;
 }
 
 const useStyles = makeStyles((theme) => ({
@@ -68,32 +64,53 @@ const useStyles = makeStyles((theme) => ({
   container: {
     marginBottom: 25,
   },
-}))
+}));
 
 export default function Confirmation() {
-  const classes = useStyles()
+  const [quantity, setQuantity] = useState(1);
+  const classes = useStyles();
 
+  const changeQuantity = (e) => {
+    if (e.target.id === 'plus') {
+      setQuantity(quantity + 1);
+    } else if (e.target.id === 'minus' && quantity > 0) {
+      setQuantity(quantity - 1);
+    }
+  };
   return (
     <Container className={classes.container} component='main' maxWidth='xs'>
       <CssBaseline />
       <div className={classes.paper}>
         <Typography component='h1' variant='h5'>
-          Confirmation
+          Checkout
         </Typography>
+        <br></br>
         <form className={classes.form} noValidate>
-          <Typography component='h4' variant='h5'>
+          <Typography id='discrete-slider-custom' gutterBottom>
             Quantity
           </Typography>
-          <div className='quantity'>
-            <RemoveTwoToneIcon color='primary' className='fa fa-plus-circle' />
-            <span>3</span>
-            <AddTwoToneIcon color='primary' className='fa fa-plus-circle' />
-          </div>
 
+          <div className='quantity'>
+            <RemoveTwoToneIcon
+              id='minus'
+              onClick={changeQuantity}
+              color='primary'
+              fontSize='large'
+            />
+            <span>{quantity}</span>
+            <AddTwoToneIcon
+              id='plus'
+              onClick={changeQuantity}
+              color='primary'
+              fontSize='large'
+            />
+          </div>
+          <br></br>
           <Typography id='discrete-slider-custom' gutterBottom>
             Delivery option
           </Typography>
           <Slider
+            track={false}
             defaultValue={50}
             getAriaValueText={valuetext}
             aria-labelledby='discrete-slider-custom'
@@ -104,5 +121,5 @@ export default function Confirmation() {
         </form>
       </div>
     </Container>
-  )
+  );
 }

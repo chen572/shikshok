@@ -1,5 +1,10 @@
 .quantity >span{
-    margin: 10vh;
+    margin: 7vh;
     font-size: 5vh;
+    
+}
+
+#minus{
+    margin-left: 20%;
 }
 
