@@ -1,13 +1,15 @@
-#navbarButtonDiv{
-    position: absolute;
-    z-index: 1;
-    top: 5.5vh;
-    display: inline-flex;
+#navbarButtonDiv {
+  position: absolute;
+  z-index: 1;
+  top: 5.5vh;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100vw;
 }
 
-.navbarButton{
-    color: white;
-    margin-left: 3vh;
-    margin-right: 3vh;
+.navbarButton {
+  color: white;
+  margin-left: 3vh;
+  margin-right: 3vh;
 }
-
