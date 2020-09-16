@@ -1,16 +1,19 @@
 import React from 'react'
 import ReactSwipeButton from 'react-swipe-button'
+import './SwipeToBuy.css'
 
 function SwipeToBuy(props) {
   const { handleSuccess } = props
 
   return (
-    <ReactSwipeButton
-      text='SWIPE TO CONFIRM'
-      text_unlocked='CONFIRMED'
-      color='#f00'
-      onSuccess={handleSuccess}
-    />
+    <div className='swiper'>
+      <ReactSwipeButton
+        text='SWIPE TO CONFIRM'
+        text_unlocked='CONFIRMED'
+        color='#008000'
+        onSuccess={handleSuccess}
+      />
+    </div>
   )
 }
 
