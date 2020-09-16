@@ -1,22 +1,22 @@
 import React, { useState } from 'react'
 import Autocomplete from '@material-ui/lab/Autocomplete'
 import SearchIcon from '@material-ui/icons/Search'
-import { Grid, makeStyles, TextField } from '@material-ui/core'
-import { Link } from 'react-router-dom'
+import { ButtonBase, Grid, makeStyles, TextField } from '@material-ui/core'
 import { useGetCategories } from '../../hooks/hooks'
 
 const useStyles = makeStyles({
   rootGrid: {
-    height: '90vh',
+    height: '10vh',
     width: '100vw',
     marginTop: '1vh',
   },
 })
 
-function DiscoverPage() {
+function DiscoverPage(props) {
   const { loading, data } = useGetCategories()
   const classes = useStyles()
   const [category, setCategory] = useState('all')
+  const { setOpen } = props
 
   const handleChange = ({ target }) => {
     setCategory(target.innerText)
@@ -28,9 +28,6 @@ function DiscoverPage() {
         <div>Loading</div>
       ) : (
         <Grid container justify='center'>
-          <Link to={`/products/${category}`}>
-            <SearchIcon />
-          </Link>
           <Autocomplete
             className={classes.rootGrid}
             freeSolo
@@ -42,6 +39,9 @@ function DiscoverPage() {
               <TextField {...params} label='Discover' variant='outlined' />
             )}
           />
+          <ButtonBase onClick={() => setOpen(false)}>
+            <SearchIcon />
+          </ButtonBase>
         </Grid>
       )}
     </>
