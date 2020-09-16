@@ -23,7 +23,7 @@ function FacebookLogin(props) {
         <ButtonBase>
           <Link style={{ textDecoration: 'none' }} to='/me'>
             <PersonOutlineOutlinedIcon
-              style={{ color: 'white', paddingBottom: 0.1 }}
+              style={{ color: 'white' }}
               fontSize='large'
             />
           </Link>
