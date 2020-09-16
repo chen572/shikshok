@@ -1,5 +1,5 @@
 import React from 'react'
-import { Grid, makeStyles, TextField } from '@material-ui/core'
+import { ButtonBase, Grid, makeStyles, TextField } from '@material-ui/core'
 import SendIcon from '@material-ui/icons/Send'
 
 const useStyles = makeStyles({
@@ -12,7 +12,7 @@ const useStyles = makeStyles({
 })
 
 function DirectMessage(props) {
-  const { storeName } = props
+  const { storeName, setOpen, open } = props
   const classes = useStyles()
 
   return (
@@ -25,7 +25,15 @@ function DirectMessage(props) {
         />
       </Grid>
       <Grid item className={classes.icon}>
-        <SendIcon />
+        <ButtonBase
+          onClick={() =>
+            setTimeout(() => {
+              setOpen({ ...open, directMessageForm: false })
+            }, 250)
+          }
+        >
+          <SendIcon />
+        </ButtonBase>
       </Grid>
     </Grid>
   )

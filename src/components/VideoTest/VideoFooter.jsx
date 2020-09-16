@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
 function VideoFooter({ channel, description, song }) {
   const [open, setOpen] = useState({
     confirmForm: false,
-    DirectMessageFrom: false,
+    directMessageFrom: false,
   })
   const classes = useStyles()
 
@@ -69,7 +69,7 @@ function VideoFooter({ channel, description, song }) {
             anchor='bottom'
             open={open.directMessageForm}
           >
-            <DirectMessage storeName={channel} />
+            <DirectMessage setOpen={setOpen} open={open} storeName={channel} />
           </Drawer>
         </div>
       </div>
