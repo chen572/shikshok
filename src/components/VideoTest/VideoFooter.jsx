@@ -6,6 +6,7 @@ import SendIcon from '@material-ui/icons/Send'
 import { makeStyles } from '@material-ui/core/styles'
 import SwipeToBuy from './SwipeToBuy'
 import Confirmation from './Confirmation'
+import DirectMessage from './DirectMessage'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -18,21 +19,27 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 function VideoFooter({ channel, description, song }) {
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState({
+    confirmForm: false,
+    DirectMessageFrom: false,
+  })
   const classes = useStyles()
 
-  const handleClick = () => {
-    setOpen(true)
+  const handleClick = ({ target }) => {
+    setOpen({ ...open, [target.id]: true })
   }
 
-  const handleClose = () => {
-    setOpen(false)
+  const handleClose = ({ target }) => {
+    setOpen({
+      confirmForm: false,
+      directMessageForm: false,
+    })
   }
 
   const handleSuccess = () => {
     console.log('success!')
     setTimeout(() => {
-      setOpen(false)
+      setOpen({ ...open, confirmForm: false })
     }, 750)
   }
 
@@ -40,7 +47,7 @@ function VideoFooter({ channel, description, song }) {
     <div className='videoFooter'>
       <div className='videoFooter__text'>
         <h3>@{channel}</h3>
-        <SendIcon id='directMessage' />
+        <SendIcon id='directMessageForm' onClick={handleClick} />
         <p>{description}</p>
         <div className='priceDiv'>
           <div className={classes.root}>
@@ -50,12 +57,19 @@ function VideoFooter({ channel, description, song }) {
             />
             <h4>20% off</h4>
           </div>
-          <div onClick={handleClick} className='buyBtn'>
+          <div id='confirmForm' onClick={handleClick} className='buyBtn'>
             99$ buy now
           </div>
-          <Drawer onClose={handleClose} anchor='bottom' open={open}>
+          <Drawer onClose={handleClose} anchor='bottom' open={open.confirmForm}>
             <Confirmation />
             <SwipeToBuy handleSuccess={handleSuccess} />
+          </Drawer>
+          <Drawer
+            onClose={handleClose}
+            anchor='bottom'
+            open={open.directMessageForm}
+          >
+            <DirectMessage storeName={channel} />
           </Drawer>
         </div>
       </div>
