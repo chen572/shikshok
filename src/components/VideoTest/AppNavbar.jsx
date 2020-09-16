@@ -7,13 +7,18 @@ import DiscoverPage from './DiscoverPage'
 
 export default function AppNavbar() {
   const [open, setOpen] = useState(false)
+
   const clickHandler = () => {
     setOpen(true)
   }
 
+  const handleClose = () => {
+    setOpen(false)
+  }
+
   return (
     <div id='navbarButtonDiv'>
-      <Drawer anchor='top' open={open}>
+      <Drawer anchor='top' onClose={handleClose} open={open}>
         <DiscoverPage setOpen={setOpen} />
       </Drawer>
       <Following />
