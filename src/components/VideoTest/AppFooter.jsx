@@ -1,14 +1,12 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import './AppFooter.css'
 import FacebookLogin from './FacebookLogin'
 import ForumIcon from '@material-ui/icons/Forum'
 import HomeIcon from '@material-ui/icons/Home'
-import { Link, useLocation } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 export default function AppFooter(props) {
-  const { pathname } = useLocation()
   const { userInfo } = props
-
 
   return (
     <div id='appFooter'>
