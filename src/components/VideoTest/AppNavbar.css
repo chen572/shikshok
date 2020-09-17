@@ -1,15 +1,33 @@
-#navbarButtonDiv {
+#navbarDiv {
   position: absolute;
   z-index: 1;
-  top: 5.5vh;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
+  top: 6vh;
   width: 100vw;
+  color: white;
 }
 
-.navbarButton {
+#navbarDiv >h1{
+  margin-bottom: 0;
+}
+
+.navbarButtons {
+  display: flex;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 0;
+  justify-content: center;
+}
+
+.appNavbarBtnOn {
+  margin-top: 0;
   color: white;
-  margin-left: 3vh;
-  margin-right: 3vh;
+  margin-left: 1.2vh;
+  margin-right: 1.2vh;
+}
+
+.appNavbarBtnOff {
+  margin-top: 0;
+  color: rgba(255, 255, 255, 0.555);
+  margin-left: 1.2vh;
+  margin-right: 1.2vh;
 }

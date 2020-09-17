@@ -28,7 +28,7 @@ function VideoSidebar(props) {
               className={classes.button}
               onClick={() => {
                 setLiked(false)
-                updateVals('likes', likes - 1)
+                updateVals('likes', likes + 1)
               }}
             >
               <ThumbDownIcon fontSize='large' />
@@ -38,7 +38,7 @@ function VideoSidebar(props) {
               className={classes.button}
               onClick={(e) => {
                 setLiked(true)
-                updateVals('likes', likes + 1)
+                updateVals('likes', likes - 1)
               }}
             >
               <ThumbUpIcon fontSize='large' />

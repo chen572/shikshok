@@ -1,17 +1,31 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './AppFooter.css';
 import FacebookLogin from './FacebookLogin';
 import ForumIcon from '@material-ui/icons/Forum';
 import HomeIcon from '@material-ui/icons/Home';
-import SearchIcon from '@material-ui/icons/Search';
 import AddIcon from '@material-ui/icons/Add';
 import { Link } from 'react-router-dom';
+import Discover from './Discover'
+import { Drawer } from '@material-ui/core'
+import DiscoverPage from './DiscoverPage'
 
 export default function AppFooter(props) {
   const { userInfo } = props;
+  const [open, setOpen] = useState(false)
+
+  const clickHandler = () => {
+    setOpen(true)
+  }
+
+  const handleClose = () => {
+    setOpen(false)
+  }
 
   return (
     <div id='appFooter'>
+      <Drawer anchor='top' onClose={handleClose} open={open}>
+        <DiscoverPage setOpen={setOpen} />
+      </Drawer>
       <div className='appFooterBtn'>
         <Link className='linkBtn' to='/products'>
           <HomeIcon fontSize='large' />
@@ -20,8 +34,7 @@ export default function AppFooter(props) {
       </div>
 
       <div className='appFooterBtn'>
-        <SearchIcon fontSize='large' />
-        <p>Discover</p>
+        <Discover clickHandler={clickHandler} />
       </div>
 
       <div className='appFooterBtn'>

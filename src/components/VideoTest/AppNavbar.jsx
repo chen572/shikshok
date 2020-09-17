@@ -1,29 +1,30 @@
-import React, { useState } from 'react'
-import ForYou from './ForYou'
-import Following from './Following'
-import Discover from './Discover'
-import { Drawer } from '@material-ui/core'
-import DiscoverPage from './DiscoverPage'
+import React, { useState } from 'react';
+import ForYou from './ForYou';
+import Following from './Following';
 
 export default function AppNavbar() {
-  const [open, setOpen] = useState(false)
 
-  const clickHandler = () => {
-    setOpen(true)
+  const [forYouBold, setForYouBold] = useState(false);
+  const [followingBold, setFollowingBold] = useState(true);
+
+  const boldBtn = (e) => {
+    if(e.target.id === 'forYou'){
+      setFollowingBold(false)  
+      setForYouBold (true)
+    } else{
+      setFollowingBold(true)
+      setForYouBold (false)
+    }
+     
   }
-
-  const handleClose = () => {
-    setOpen(false)
-  }
-
+  
   return (
-    <div id='navbarButtonDiv'>
-      <Drawer anchor='top' onClose={handleClose} open={open}>
-        <DiscoverPage setOpen={setOpen} />
-      </Drawer>
-      <Following />
-      <ForYou />
-      <Discover clickHandler={clickHandler} />
+    <div id='navbarDiv'>
+      <h1 id='storeName'>WOW.</h1>
+      <div className='navbarButtons'>
+        <Following boldBtn={boldBtn} followingBold={followingBold} setFollowingBold={setFollowingBold} />
+        <ForYou boldBtn={boldBtn} forYouBold={forYouBold} setForYouBold={setForYouBold} />
+      </div>
     </div>
-  )
+  );
 }
