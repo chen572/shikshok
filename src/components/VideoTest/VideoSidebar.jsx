@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import './VideoSidebar.css'
-import FavoriteIcon from '@material-ui/icons/Favorite'
-import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder'
+import ThumbUpIcon from '@material-ui/icons/ThumbUp';
+import ThumbDownIcon from '@material-ui/icons/ThumbDown';
 import MessageIcon from '@material-ui/icons/Message'
 import ShareIcon from '@material-ui/icons/Share'
 import { useUpdateVals } from '../../hooks/hooks'
@@ -31,7 +31,7 @@ function VideoSidebar(props) {
                 updateVals('likes', likes - 1)
               }}
             >
-              <FavoriteIcon fontSize='large' />
+              <ThumbDownIcon fontSize='large' />
             </IconButton>
           ) : (
             <IconButton
@@ -41,19 +41,10 @@ function VideoSidebar(props) {
                 updateVals('likes', likes + 1)
               }}
             >
-              <FavoriteBorderIcon fontSize='large' />
+              <ThumbUpIcon fontSize='large' />
             </IconButton>
           )}
           <p className='number'>{likes}</p>
-        </div>
-        <div className='videoSidebar__button'>
-          <IconButton
-            className={classes.button}
-            onClick={() => updateVals('reviews', reviews + 1)}
-          >
-            <MessageIcon fontSize='large' />
-          </IconButton>
-          <p className='number'>{reviews}</p>
         </div>
         <div className='videoSidebar__button'>
           <IconButton
@@ -65,6 +56,13 @@ function VideoSidebar(props) {
           <p className='number'>{shares}</p>
         </div>
         <div className='videoSidebar__button'>
+          <IconButton
+            className={classes.button}
+            onClick={() => updateVals('reviews', reviews + 1)}
+          >
+            <MessageIcon fontSize='large' />
+          </IconButton>
+          <p className='number'>{reviews}</p>
         </div>
       </div>
     </div>
