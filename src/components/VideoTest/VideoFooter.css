@@ -3,7 +3,7 @@
   color: white;
   bottom: 43vh;
   margin-left: 20px;
-  display: flex;
+  /* display: flex; */
 }
 
 .videoFooter__text {
@@ -62,21 +62,15 @@
 
 
 .buyBtn{
-  width: 20vh;
-  height: 3vh;
-  background-color: lightgrey;
+  width: 30vh;
+  height: 8vh;
+  background-color: white;
   border: solid black 1px;
   border-radius: 2px;
-  text-align: center;
   margin: auto;
+  justify-items: center;
+  text-align: center;
   color: black;
 }
 
-@keyframes spinTheRecord {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+
