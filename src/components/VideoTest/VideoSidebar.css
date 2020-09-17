@@ -1,22 +1,13 @@
 .videoSidebar {
   position: absolute;
   top: 43%;
-  right: 1vh;
+  right: 0.5vh;
   color: white;
 }
 
 .videoSidebar__button {
   padding: 7px;
   text-align: center;
-}
-
-#paypalPopUp {
-  position: absolute;
-  top: 50px;
-  width: 100%;
-  overflow: scroll;
-  max-height: 435px;
-  background-color: rgba(255, 255, 255, 0.3);
 }
 
 .number{

@@ -1,10 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './AppNavbar.css';
 
-export default function ForYou() {
+export default function ForYou(props) {
+    
+ 
+
+  
+
     return (
-        <div>
-            <h3 className='navbarButton'>For You</h3>
+        <div onClick={props.boldBtn} >
+
+            <h3 id='forYou' className={props.forYouBold ? 'appNavbarBtnOn' : 'appNavbarBtnOff'}>For You</h3>
         </div>
     )
 }

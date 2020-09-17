@@ -1,10 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './AppNavbar.css';
 
-export default function Following() {
+export default function Following(props) {
+  
+ 
+
+  
+
   return (
-    <div>
-      <h3 className='navbarButton'>Following</h3>
+    <div  onClick={props.boldBtn} >
+      <h3 id='following' className={props.followingBold ? 'appNavbarBtnOn' : 'appNavbarBtnOff'}>Following</h3>
     </div>
   );
 }
