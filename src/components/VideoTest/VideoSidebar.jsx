@@ -1,34 +1,38 @@
-import React, { useState } from 'react'
-import './VideoSidebar.css'
+import React, { useState } from 'react';
+import './VideoSidebar.css';
 import ThumbUpIcon from '@material-ui/icons/ThumbUp';
 import ThumbDownIcon from '@material-ui/icons/ThumbDown';
-import MessageIcon from '@material-ui/icons/Message'
-import ShareIcon from '@material-ui/icons/Share'
-import { useUpdateVals } from '../../hooks/hooks'
-import { IconButton, makeStyles } from '@material-ui/core'
+import MessageIcon from '@material-ui/icons/Message';
+import ShareIcon from '@material-ui/icons/Share';
+import AddIcon from '@material-ui/icons/Add';
+import { useUpdateVals } from '../../hooks/hooks';
+import { IconButton, makeStyles } from '@material-ui/core';
 
 const useStyles = makeStyles({
   button: {
     color: 'white',
   },
-})
+});
 
 function VideoSidebar(props) {
-  const [liked, setLiked] = useState(false)
-  const { updateVals, values } = useUpdateVals(props)
-  const { likes, shares, reviews } = values
-  const classes = useStyles()
+  const [liked, setLiked] = useState(false);
+  const { updateVals, values } = useUpdateVals(props);
+  const { likes, shares, reviews } = values;
+  const classes = useStyles();
 
   return (
     <div>
       <div className='videoSidebar'>
         <div className='videoSidebar__button'>
+          <AddIcon fontSize='large' />
+        </div>
+        <div className='videoSidebar__button'>
           {liked ? (
             <IconButton
               className={classes.button}
               onClick={() => {
-                setLiked(false)
-                updateVals('likes', likes + 1)
+                setLiked(false);
+                updateVals('likes', likes + 1);
               }}
             >
               <ThumbDownIcon fontSize='large' />
@@ -37,8 +41,8 @@ function VideoSidebar(props) {
             <IconButton
               className={classes.button}
               onClick={(e) => {
-                setLiked(true)
-                updateVals('likes', likes - 1)
+                setLiked(true);
+                updateVals('likes', likes - 1);
               }}
             >
               <ThumbUpIcon fontSize='large' />
@@ -66,7 +70,7 @@ function VideoSidebar(props) {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default VideoSidebar
+export default VideoSidebar;

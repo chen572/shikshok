@@ -45,7 +45,7 @@ function VideoFooter({ channel, description, song }) {
 
   return (
     <div className='videoFooter'>
-      <div id='confirmForm' onClick={handleClick} className='buyBtn'>
+      <div onClick={handleClick} className='buyBtn'>
         <h3>5.99$ SHOP NOW</h3>
       </div>
       <div className='videoFooter__text'>
